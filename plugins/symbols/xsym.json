@@ -1,0 +1,575 @@
+{
+    "symbols": {},
+    "enums": {},
+    "base_types": {
+        "unsigned char": {
+            "kind": "char",
+            "size": 1,
+            "signed": false,
+            "endian": "little"
+        },
+        "char": {
+            "size": 1,
+            "signed": true,
+            "kind": "char",
+            "endian": "little"
+        },
+        "pointer": {
+            "kind": "int",
+            "size": 8,
+            "signed": false,
+            "endian": "little"
+        },
+        "int": {
+            "size": 4,
+            "signed": true,
+            "kind": "int",
+            "endian": "little"
+        },
+        "unsigned int": {
+            "size": 4,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "short": {
+            "size": 2,
+            "signed": true,
+            "kind": "int",
+            "endian": "little"
+        },
+        "unsigned short": {
+            "size": 2,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "unsigned long": {
+            "size": 4,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "ulong": {
+            "size": 8,
+            "signed": false,
+            "kind": "int",
+	    "signed": false,
+            "endian": "little"
+        },
+        "signed char": {
+            "size": 1,
+            "signed": true,
+            "kind": "char",
+            "endian": "little"
+        }
+    },
+    "user_types": {
+        "xorg_list": {
+            "fields": {
+                "next": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "xorg_list" }
+                    },
+                    "offset": 0
+                },
+                "prev": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "xorg_list" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "clientId": {
+            "fields": {
+                "pid": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 0
+                },
+                "cmdname": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 8
+                },
+                "cmdargs": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 16
+                }
+            },
+            "kind": "struct",
+            "size": 24
+        },
+        "client": {
+            "fields": {
+                "requestbuffer": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 0
+                },
+                "osprivate": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 8
+                },
+                "ready": {
+                    "type": { "kind": "struct", "name": "xorg_list" },
+                    "offset": 16
+                },
+                "output_pending": {
+                    "type": { "kind": "struct", "name": "xorg_list" },
+                    "offset": 32
+                },
+                "clientAsMask": {
+                    "type": { "kind": "base", "name": "unsigned long" },
+                    "offset": 48
+                },
+                "index": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 52
+                },
+                "majorOp": {
+                    "type": { "kind": "base", "name": "unsigned char" },
+                    "offset": 54
+                },
+                "minorOp": {
+                    "type": { "kind": "base", "name": "unsigned char" },
+                    "offset": 55
+                },
+                "bitf": {
+                    "type": { "kind": "base", "name": "char" },
+                    "offset": 56
+                },
+                "smart_priority": {
+                    "type": { "kind": "base", "name": "signed char" },
+                    "offset": 57
+                },
+                "noClientException": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 58
+                },
+                "priority": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 60
+                },
+                "pSwapReplyFunc": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 64
+                },
+                "errorValue": {
+                    "type": { "kind": "base", "name": "unsigned long" },
+                    "offset": 72
+                },
+                "sequence": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 76
+                },
+                "ignoreCount": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 80
+                },
+                "numSaved": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 84
+                },
+                "saveSet": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 88
+                },
+                "requestVector": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 96
+                },
+                "req_len": {
+                    "type": { "kind": "base", "name": "unsigned int" },
+                    "offset": 104
+                },
+                "replyBytesRemaining": {
+                    "type": { "kind": "base", "name": "unsigned int" },
+                    "offset": 108
+                },
+                "devPrivates": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 112
+                },
+                "mapNotifyMask": {
+                    "type": { "kind": "base", "name": "unsigned short" },
+                    "offset": 120
+                },
+                "newKeyboardNotifyMask": {
+                    "type": { "kind": "base", "name": "unsigned short" },
+                    "offset": 122
+                },
+                "xkbClientFlags": {
+                    "type": { "kind": "base", "name": "unsigned char" },
+                    "offset": 124
+                },
+                "minKC": {
+                    "type": { "kind": "base", "name": "unsigned char" },
+                    "offset": 125
+                },
+                "maxKC": {
+                    "type": { "kind": "base", "name": "unsigned char" },
+                    "offset": 126
+                },
+                "smart_start_tick": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 128
+                },
+                "smart_stop_tick": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 132
+                },
+                "clientPtr": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 136
+                },
+                "clientIds": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "clientId" }
+                    },
+                    "offset": 144
+                },
+                "req_fds": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 152
+                }
+            },
+            "kind": "struct",
+            "size": 160
+        },
+        "Window": {
+            "fields": {
+                "drawable": {
+                    "type": {
+                        "kind": "struct",
+			"name": "Drawable"
+                    },
+                    "offset": 0
+		},
+                "devPrivates": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "void" }
+                    },
+                    "offset": 32
+                },
+                "parent": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 40
+                },
+                "nextSib": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 48
+                },
+                "prevSib": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 56
+                },
+                "firstChild": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 64
+                },
+                "lastChild": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 72
+                },
+		"eventMask": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 160
+                },
+                "optional": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "WindowOpt" }
+                    },
+                    "offset": 184
+                }
+            },
+            "kind": "struct",
+            "size": 200
+        },
+        "Screen": {
+            "fields": {
+                "myNum": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 0
+                },
+                "x": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 8
+                },
+                "y": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 10
+                },
+                "width": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 12
+                },
+                "height": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 14
+                },
+                "root": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Window" }
+                    },
+                    "offset": 176
+                }
+            },
+            "kind": "struct",
+            "size": 1336
+        },
+        "WindowOpt": {
+            "fields": {
+                "otherClients": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "OtherClients" }
+                    },
+                    "offset": 24
+                },
+                "OtherInputMasks": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "OtherInputMasks" }
+                    },
+                    "offset": 80
+                }
+            },
+            "kind": "struct",
+            "size": 96
+        },
+        "OtherInputMasks": {
+            "fields": {
+                "InputClients": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "InputClients" }
+                    },
+                    "offset": 3096
+                },
+                "xi2mask": {
+                    "type": { "kind": "struct", "name": "xi2mask" },
+                    "offset": 3104
+                }
+            },
+            "kind": "struct",
+            "size": 3112
+        },
+        "InputClients": { 
+            "fields": {
+                "next": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "InputClients" }
+                    },
+                    "offset": 0
+                },
+                "resource": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 8
+                },
+		"mask":{
+      		    "type": {
+            	        "count": 16,
+                        "kind": "array",
+                        "subtype": {
+                            "kind": "base",
+                            "name": "ulong"
+                        }
+		    },
+		    "offset": 12
+                },
+                "xi2mask": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "xi2mask" }
+                    },
+                    "offset": 1048
+                }
+            },
+            "kind": "struct",
+            "size": 1056
+        },
+        "xi2mask": {
+            "fields": {
+                "masks": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "eventmask" }
+                    },
+                    "offset": 0
+                },
+                "nmasks": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 8
+                },
+                "masksize": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 16
+                }
+            },
+            "kind": "struct",
+            "size": 24
+        },
+        "eventmask": {
+            "fields": {
+		"alldevices":{
+      		    "type": {
+			"kind": "pointer",
+			"subtype": {
+            	            "count": 5,
+                            "kind": "array",
+                            "subtype": {
+                                "kind": "base",
+                                "name": "unsigned char"
+                            }
+			}
+		    },
+		    "offset": 0
+                },
+		"allmasterdevices":{
+      		    "type": {
+			"kind": "pointer",
+			"subtype": {
+            	            "count": 5,
+                            "kind": "array",
+                            "subtype": {
+                                "kind": "base",
+                                "name": "unsigned char"
+                            }
+			}
+		    },
+		    "offset": 8
+                }
+	    },
+            "kind": "struct",
+            "size": 10
+        },
+        "OtherClients": {
+            "fields": {
+                "otherClients": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "OtherClients" }
+                    },
+                    "offset": 0
+                },
+                "resource": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 8
+                },
+                "mask": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 12
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "Drawable": {
+            "fields": {
+                "window_type": {
+                    "type": { "kind": "base", "name": "char" },
+                    "offset": 0
+                },
+                "class": {
+                    "type": { "kind": "base", "name": "char" },
+                    "offset": 1
+                },
+                "depth": {
+                    "type": { "kind": "base", "name": "char" },
+                    "offset": 2
+                },
+                "bitsPerPixel": {
+                    "type": { "kind": "base", "name": "char" },
+                    "offset": 3
+                },
+                "id": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 4
+                },
+                "x": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 8
+                },
+                "y": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 10
+                },
+                "width": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 12
+                },
+                "height": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 14
+                },
+                "pScreen": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "Screen" }
+                    },
+                    "offset": 16
+                }
+            },
+            "kind": "struct",
+            "size": 32
+        }
+     },
+    "metadata": {
+        "producer": {
+            "version": "0.0.1",
+            "name": "custom-structure-json",
+            "datetime": "2024-12-11T12:34:56.000000"
+        },
+        "format": "4.1.0"
+    }
+}

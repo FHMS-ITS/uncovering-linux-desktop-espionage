@@ -1,0 +1,489 @@
+{
+    "symbols": {},
+    "enums": {},
+    "base_types": {
+        "unsigned char": {
+            "kind": "char",
+            "size": 1,
+            "signed": false,
+            "endian": "little"
+        },
+        "char": {
+            "size": 1,
+            "signed": true,
+            "kind": "char",
+            "endian": "little"
+        },
+        "pointer": {
+            "kind": "int",
+            "size": 8,
+            "signed": false,
+            "endian": "little"
+        },
+        "int": {
+            "size": 4,
+            "signed": true,
+            "kind": "int",
+            "endian": "little"
+        },
+        "short": {
+            "size": 2,
+            "signed": true,
+            "kind": "int",
+            "endian": "little"
+        },
+        "long": {
+            "size": 8,
+            "signed": true,
+            "kind": "int",
+            "endian": "little"
+        },
+        "unsigned int": {
+            "size": 4,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "uint32_t": {
+            "size": 4,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "uint64_t": {
+            "size": 8,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        },
+        "unsigned long": {
+            "size": 8,
+            "signed": false,
+            "kind": "int",
+            "endian": "little"
+        }
+    },
+    "user_types": {
+        "spa_list": {
+            "fields": {
+                "next": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_list" }
+                    },
+                    "offset": 0
+                },
+                "prev": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_list" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "sockaddr_storage": {
+            "fields": {
+                "ss_family": {
+                    "type": { "kind": "base", "name": "short" },
+                    "offset": 0
+                },
+                "__ss_padding": {
+                    "type": {
+                        "kind": "array",
+                        "count": 118,
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 2
+                },
+                "__ss_align": {
+                    "type": { "kind": "base", "name": "unsigned long" },
+                    "offset": 120
+                }
+            },
+            "kind": "struct",
+            "size": 128
+        },
+        "server": {
+            "fields": {
+                "link": {
+                    "type": { "kind": "struct", "name": "spa_list" },
+                    "offset": 0
+                },
+                "impl": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 16
+                },
+                "addr": {
+                    "type": { "kind": "struct", "name": "sockaddr_storage" },
+                    "offset": 24
+                },
+                "source": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_source" }
+                    },
+                    "offset": 152
+                },
+                "clients": {
+                    "type": { "kind": "struct", "name": "spa_list" },
+                    "offset": 160
+                },
+                "max_clients": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 176
+                },
+                "listen_backlog": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 180
+                },
+                "client_access": {
+                    "type": {
+                        "kind": "array",
+                        "count": 64,
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 184
+                },
+                "n_clients": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 248
+                },
+                "wait_clients": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 252
+                },
+                "activated": {
+                    "type": { "kind": "base", "name": "long" },
+                    "offset": 256
+                }
+            },
+            "kind": "struct",
+            "size": 264
+        },
+        "spa_source": {
+            "fields": {
+                "loop": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 0
+                },
+                "func": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 8
+                },
+                "data": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 16
+                },
+                "fd": {
+                    "type": { "kind": "base", "name": "int" },
+                    "offset": 24
+                },
+                "mask": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 28
+                },
+                "rmask": {
+                    "type": { "kind": "base", "name": "uint32_t" },
+                    "offset": 32
+                },
+                "data": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 40
+                }
+            },
+            "kind": "struct",
+            "size": 48
+        },
+        "client": {
+            "fields": {
+                "source": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_source" }
+                    },
+                    "offset": 48
+                }
+            },
+            "kind": "struct",
+            "size": 376
+        },
+        "pw_impl_node": {
+            "fields": {
+                "context": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 0
+                },
+                "link": {
+                    "type": {
+                        "kind": "struct",
+                        "name": "spa_list"
+                    },
+                    "offset": 8
+                },
+                "global": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "pw_global" }
+                    },
+                    "offset": 24
+                },
+                "global_listener": {
+                    "type": {
+                        "kind": "struct",
+                        "name": "spa_hook"
+                    },
+                    "offset": 32
+                },
+                "properties": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "pw_properties" }
+                    },
+                    "offset": 80
+                },
+                "info": {
+                    "type": {
+                        "kind": "struct",
+                        "name": "pw_node_info"
+                    },
+                    "offset": 88
+                }
+            },
+            "kind": "struct",
+            "size": 160
+        },
+        "spa_list": {
+            "fields": {
+                "next": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_list" }
+                    },
+                    "offset": 0
+                },
+                "prev": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_list" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "spa_hook": {
+            "fields": {
+                "link": {
+                    "type": {
+                        "kind": "struct",
+                        "name": "spa_list"
+                    },
+                    "offset": 0
+                },
+                "cb": {
+                    "type": {
+                        "kind": "struct",
+                        "name": "spa_callbacks"
+                    },
+                    "offset": 16
+                },
+                "removed": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "function", "params": [{ "kind": "pointer", "subtype": { "kind": "struct", "name": "spa_hook" } }] }
+                    },
+                    "offset": 64
+                },
+                "priv": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "void" }
+                    },
+                    "offset": 72
+                }
+            },
+            "kind": "struct",
+            "size": 48
+        },
+        "spa_callbacks": {
+            "fields": {
+                "funcs": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "void" }
+                    },
+                    "offset": 0
+                },
+                "data": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "void" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "pw_node_info": {
+            "fields": {
+                "id": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 0
+                },
+                "max_input_ports": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 4
+                },
+                "max_output_ports": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 8
+                },
+                "change_mask": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint64_t"
+                    },
+                    "offset": 16
+                },
+                "n_input_ports": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 24
+                },
+                "n_output_ports": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 28
+                },
+                "state": {
+                    "type": {
+                        "kind": "base",
+                        "name": "int"
+                    },
+                    "offset": 32
+                },
+                "error": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 40
+                },
+                "props": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_dict" }
+                    },
+                    "offset": 48
+                },
+                "params": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "void" }
+                    },
+                    "offset": 56
+                },
+                "n_params": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 64
+                }
+            },
+            "kind": "struct",
+            "size": 72
+        },
+        "spa_dict": {
+            "fields": {
+                "flags": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 0
+                },
+                "n_items": {
+                    "type": {
+                        "kind": "base",
+                        "name": "uint32_t"
+                    },
+                    "offset": 4
+                },
+                "items": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "struct", "name": "spa_dict_item" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        },
+        "spa_dict_item": {
+            "fields": {
+                "key": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 0
+                },
+                "value": {
+                    "type": {
+                        "kind": "pointer",
+                        "subtype": { "kind": "base", "name": "char" }
+                    },
+                    "offset": 8
+                }
+            },
+            "kind": "struct",
+            "size": 16
+        }
+    },
+    "metadata": {
+        "producer": {
+            "version": "0.0.1",
+            "name": "custom-structure-json",
+            "datetime": "2024-12-11T12:34:56.000000"
+        },
+        "format": "4.1.0"
+    }
+}
